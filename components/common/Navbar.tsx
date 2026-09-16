@@ -7,7 +7,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
-  { href: "/login", label: "Login" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -16,10 +16,12 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-muted">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+        {/* Logo */}
         <Link href="/" className="text-lg font-bold text-foreground">
           SpaceTech
         </Link>
 
+        {/* Nav links */}
         <ul className="flex items-center gap-6">
           {links.map(({ href, label }) => {
             const isActive = pathname === href;
@@ -39,6 +41,14 @@ export default function Navbar() {
             );
           })}
         </ul>
+
+        {/* Auth button */}
+        <Link
+          href="/login"
+          className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+        >
+          Login / Sign up
+        </Link>
       </div>
     </nav>
   );
